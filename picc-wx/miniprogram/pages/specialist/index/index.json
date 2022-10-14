@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "homepage": "/pages/specialist/homepage/home/home",
+    "message": "/pages/specialist/message/home/home",
+    "mycenter": "/pages/specialist/mycenter/home/home"
+  }
+}

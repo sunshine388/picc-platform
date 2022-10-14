@@ -1,0 +1,24 @@
+<!--pages/nurse/homepage/returnVisit/returnVisit.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">就诊回访</view>
+</cu-custom>
+<view class="top" bindtap="appointmentHistoryJump">历史会诊记录</view>
+<view class="content">
+  <text class="text">我的患者</text>
+  <demo-block wx:if="{{noData}}">
+    <van-empty description='您暂无已绑定的患者'>
+    </van-empty>
+  </demo-block>
+  <view wx:for="{{patientList}}" class="card" wx:key="index">
+    <view class="head">
+      <image class="avatar" src='{{item.avatar_url}}'></image>
+      <view class="info">
+        <text>患者姓名:{{item.patientname}}</text>
+        <text>患者性别:{{item.sex}}</text>
+        <text>绑定时间:{{item.create_time}}</text>
+      </view>
+    </view>
+    <button class="btn cu-btn bg-skyblue" data-index="{{index}}" bindtap="returnVisitJump">回访</button>
+  </view>
+</view>

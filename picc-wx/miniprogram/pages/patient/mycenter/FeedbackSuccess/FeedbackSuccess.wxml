@@ -1,0 +1,13 @@
+<!--pages/patient/mycenter/FeedbackSuccess/FeedbackSuccess.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">反馈成功</view>
+</cu-custom>
+<view class="content-box">
+  <view class="padding fs260">
+    <text class="cuIcon-roundcheckfill text-green"></text>
+  </view>
+  <text class="text">反馈已提交</text>
+  <text class="tip">感谢您的反馈，我们将尽快对此进行处理</text>
+  <button class="cu-btn round bg-green shadow lg" bindtap="backJump">关闭</button>
+</view>

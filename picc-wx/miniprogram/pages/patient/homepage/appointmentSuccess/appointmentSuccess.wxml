@@ -1,0 +1,7 @@
+<!--pages/patient/homepage/appointmentSuccess/appointmentSuccess.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">预约成功</view>
+</cu-custom>
+恭喜您预约成功
+点击返回

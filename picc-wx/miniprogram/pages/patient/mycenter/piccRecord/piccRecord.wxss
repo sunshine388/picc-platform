@@ -1,0 +1,5 @@
+/* pages/patient/mycenter/piccRecord/piccRecord.wxss */
+.box{
+  height:auto;
+  padding:20rpx;
+}

@@ -1,0 +1,47 @@
+/* pages/patient/mycenter/home/home.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+
+.top{
+  text-align:center;
+  position:relative;
+  padding:200rpx 0 20rpx 0;
+}
+.top-bg{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:500rpx;
+  z-index:-1;
+  -webkit-box-shadow:0 0 10px 5px #d1d1d1;
+		-moz-box-shadow: 0 0 10px 5px #d1d1d1;
+		box-shadow: 0 0 10px 5px #d1d1d1;
+}
+.avatar{   
+  height: 160rpx;    
+  width: 160rpx;    
+  border-radius: 50%;
+}
+.content-box{
+  background:#ffffff;
+  margin:0 30rpx 0 30rpx;
+  border-radius: 15rpx;
+}
+.cell{
+  height:80rpx;
+  line-height:80rpx;
+  border-bottom:1rpx solid #ececec;
+  margin:0 20rpx 0 20rpx;
+}
+.title{
+  margin-left:20rpx;
+}
+.cell-content{
+  margin-left:100rpx;
+}
+ .logout-btn{
+   margin-top:40rpx;
+   border-radius:20rpx;
+   border:1rpx solid #999;
+ }

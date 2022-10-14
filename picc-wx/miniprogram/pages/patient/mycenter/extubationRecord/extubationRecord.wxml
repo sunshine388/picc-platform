@@ -1,0 +1,19 @@
+<!--pages/patient/mycenter/extubationRecord/extubationRecord.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">拔管记录</view>
+</cu-custom>
+
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+<view wx:if="{{!loading}}" class="box">
+  <view>
+    拔管时间：{{extubationInfo.extubation_date}}
+  </view>
+  <view>留置时间：{{extubationInfo.indwelling_time}}天</view>
+  <view>导管末端是否完整：{{extubationInfo.end_intact}}</view>
+  <view>拔管过程是否顺利：{{extubationInfo.process_smooth}}</view>
+  <view>拔管原因：{{extubationInfo.reason}}</view>
+</view>

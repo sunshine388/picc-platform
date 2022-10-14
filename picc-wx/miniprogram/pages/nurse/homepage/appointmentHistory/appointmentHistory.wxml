@@ -1,0 +1,67 @@
+<!--pages/nurse/homepage/appointmentHistory/appointmentHistory.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">就诊回访</view>
+</cu-custom>
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无预约信息'>
+  </van-empty>
+</demo-block>
+<view wx:if="{{!noData}}" wx:for="{{appointmentList}}" class="box" wx:key="index">
+  <van-cell-group>
+    <van-cell title="预约人" value="{{item.patientName}}" />
+    <van-cell title="预约时间">
+      <view slot="">
+        <view class="van-cell-text">{{item.appointmentDate}}-{{item.appointmentTime}}</view>
+      </view>
+    </van-cell>
+    <van-cell title="预约类型" value="{{item.type}}" />
+    <van-cell title="创建时间" value="{{item.ctime}}" />
+    <van-collapse value="{{ activeNames }}" bind:change="onChange" bind:open="onOpen" data-index="{{index}}">
+      <van-collapse-item title="查看" name="{{index}}">
+        <van-loading size="24px" wx:if="{{item.loading}}">加载中...</van-loading>
+        <view wx:else>
+          <view wx:if="{{item.type==='置管'}}" class="content">
+            <text>疾病类型：{{ item.disease_type }}</text>
+            <text>是否首次置管：{{ item.first_catheter }}</text>
+            <text>置管科室：{{ item.catheter_department }}</text>
+            <text>置管时间：{{ item.catheter_time }}</text>
+            <text>化疗次数：{{ item.chemotherapy_number }}次</text>
+            <text>置管时机：{{ item.catheter_opportunity }}</text>
+            <text>导管型号：{{ item.catheter_model }}</text>
+            <text>导管规格：{{ item.catheter_specification }}</text>
+            <text>导管批号：{{ item.catheter_batchnumber }}</text>
+            <text>导管长度：{{ item.catheter_length }}cm</text>
+            <text>穿刺方法：{{ item.puncture_method }}</text>
+            <text>置管部位：{{ item.catheter_site }}</text>
+            <text>置管手臂：{{ item.catheter_arm }}</text>
+            <text>置管静脉：{{ item.catheter_vein }}</text>
+            <text>导管尖端位置：{{ item.catheter_tip_position }}</text>
+            <text>导管插入长度：{{ item.catheter_insertion_length }}cm</text>
+            <text>导管外露长度：{{ item.catheter_exposed_length }}cm</text>
+            <text>臂围：{{ item.arm_circumference }}</text>
+          </view>
+          <view wx:if="{{item.type==='维护'}}" class="content">
+            <text>维护日期：{{item.maintain_date}}</text>
+            <text>管路是否通畅：{{item.pipeline_unobstructed}}</text>
+            <text>是否更换敷料：{{item.change_dressing}}</text>
+            <text>是否更换接头：{{item.replace_connector}}</text>
+            <text>有无阻力：{{item.resistance}}</text>
+            <text>并发症：{{item.companion}}</text>
+            <text wx:if="{{item.bfz}}">处理方法：{{item.treatment_process}}</text>
+          </view>
+          <view wx:if="{{item.type==='拔管'}}" class="content">
+            <text>
+              拔管时间：{{item.extubation_date}}
+            </text>
+            <text>留置时间：{{item.indwelling_time}}天</text>
+            <text>拔管原因：{{item.reason}}</text>
+          </view>
+        </view>
+      </van-collapse-item>
+    </van-collapse>
+    <van-cell is-link title="回访" link-type="navigateTo" data-index="{{index}}" bindtap="returnVisitJump"/>
+    <!--
+    <van-cell is-link title="回访" link-type="navigateTo" data-index="{{index}}" url="/pages/dashboard/index?number={{item.patientNumber}}" />-->
+  </van-cell-group>
+</view>

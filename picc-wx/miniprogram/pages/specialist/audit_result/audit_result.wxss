@@ -1,0 +1,13 @@
+/* pages/specialist/audit_result/audit_result.wxss */
+.content-box{
+  text-align:center;
+  padding-top:200rpx;
+}
+.text{
+  line-height:80rpx;
+  font-size:36rpx;
+  font-weight: 400;
+}
+.fs260{
+  font-size:260rpx;
+}

@@ -1,0 +1,6 @@
+/* pages/nurse/homepage/upload/upload.wxss */
+.btn{
+  margin-top:40rpx;
+  border-radius:20rpx;
+  border:1rpx solid #999;
+}

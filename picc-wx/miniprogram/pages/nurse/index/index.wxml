@@ -1,0 +1,25 @@
+
+<homepage wx:if="{{PageCur=='homepage'}}"></homepage>
+<message wx:if="{{PageCur=='message'}}"></message>
+<mycenter wx:if="{{PageCur=='mycenter'}}"></mycenter>
+
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="homepage">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/common/tabbar/homepage{{PageCur=='homepage'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='homepage'?'text-blue':'text-darkGray'}}">首页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="message">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/common/tabbar/message{{PageCur=='message'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='message'?'text-blue':'text-darkGray'}}">消息</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="mycenter">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/common/tabbar/mycenter{{PageCur=='mycenter'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='mycenter'?'text-blue':'text-darkGray'}}">我的</view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<!--pages/patient/homepage/appointment/appointment.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">预约挂号</view>
+</cu-custom>
+<view>
+  <form bindsubmit="formSubmit">
+    <view class="cu-form-group">
+      <view class="title">类型</view>
+      <picker bindchange="PickerChange1" value="{{index1}}" range="{{type}}">
+        <view class="picker">
+          {{index1?type[index1]:'请选择预约类型'}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">预约科室</view>
+      <picker wx:if="{{hasData}}" bindchange="PickerChange2" value="{{index2}}" range="{{department}}">
+        <view class="picker">
+          {{index2?department[index2]:'请选择预约科室'}}
+        </view>
+      </picker>
+      <view wx:else class="title" bindtap="onClick" style="margin-right:-34rpx;font-size:28rpx;">请选择预约科室
+        <text class="cuIcon-right lg text-gray" style="margin-left:10rpx;"></text>
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">医生</view>
+      <picker wx:if="{{index2}}" bindchange="PickerChange3" value="{{index3}}" range="{{nurseList}}"
+        range-key="nursename">
+        <view class="picker">
+          {{index3?nurseList[index3].nursename:'请选择预约医生'}}
+        </view>
+      </picker>
+      <view wx:else class="title" bindtap="onClick1" style="margin-right:-34rpx;font-size:28rpx;">请选择预约医生
+        <text class="cuIcon-right lg text-gray" style="margin-left:10rpx;"></text>
+      </view>
+    </view>
+    <view class="cu-form-group" bindtap="onClick2" style="display:flex;justify-content:space-between;">
+      <view class="title">预约时间</view>
+      <text wx:if="{{!checked}}" class="cuIcon-right lg text-gray" style="margin-left:10rpx;"></text>
+      <text wx:else class="cuIcon-unfold lg text-gray" style="margin-left:10rpx;"></text>
+    </view>
+    <view wx:if="{{checked}}" style="padding-bottom:80rpx;">
+      <view class="appointment" wx:for="{{appointment}}" wx:if="{{item.forenoon||item.afternoon}}">
+        <view formType="submit" class="left">
+          <text>{{item.date}}</text>
+          <view class="label round">{{item.label}}</view>
+        </view>
+        <view>
+          <view wx:if="{{item.forenoon}}" class="right">
+            <text>上午</text>
+            <button data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.forenoonLimit>item.forenoonNumber}}" class="cu-btn bg-skyblue round"
+              bindtap="appointment1" style="width:200rpx;margin-right:20rpx;">预约</button>
+            <button wx:else class="cu-btn bg-skyblue round" disabled
+              style="width:200rpx;margin-right:20rpx;">约满</button>
+          </view>
+          <view wx:if="{{item.afternoon}}" class="right">
+            <text>下午</text>
+            <button data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.afternoonLimit>item.afternoonNumber}}" class="cu-btn bg-skyblue round"
+              bindtap="appointment2" style="width:200rpx;margin-right:20rpx;">预约</button>
+            <button wx:else class="cu-btn bg-skyblue round" disabled
+              style="width:200rpx;margin-right:20rpx;">约满</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </form>
+  <view class="bottom" bindtap="appointmentRecordJump">预约历史记录</view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "homepage": "/pages/nurse/homepage/home/home",
+    "message": "/pages/nurse/message/home/home",
+    "mycenter": "/pages/nurse/mycenter/home/home"
+  }
+}

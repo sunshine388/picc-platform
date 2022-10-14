@@ -1,0 +1,21 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="top">
+    <image class='top-bg' src='/images/common/txbj.jpg'></image>
+    <image class="avatar" src='{{userInfo.avatarUrl}}'></image>
+    <view class="text-df">{{nurseInfo.username}}</view>
+    <text bindtap="editProfileJump">编辑资料</text>
+  </view>
+  <view class="content-box">
+    <view class="cell" bindtap="myPatientJump">
+        <text class="cuIcon-circlefill text-olive"></text>
+        <text class="title">我的病人</text>
+      <text class="cuIcon-right" style="float:right;"></text>
+    </view>
+    <view class="cell" bindtap="FeedbackJump">
+        <text class="cuIcon-questionfill text-red"></text>
+        <text class="title">我要留言</text>
+      <text class="cuIcon-right" style="float:right;"></text>
+    </view>
+  </view>
+  <button style="width:90vw"  class="logout-btn" bindtap="logout">退出登录</button>
+</scroll-view>

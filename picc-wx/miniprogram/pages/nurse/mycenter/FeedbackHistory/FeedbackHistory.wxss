@@ -1,0 +1,5 @@
+/* pages/nurse/mycenter/FeedbackHistory/FeedbackHistory.wxss */
+.box{
+  height:auto;
+  padding:20rpx;
+}

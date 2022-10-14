@@ -1,0 +1,17 @@
+<!--pages/patient/mycenter/Feedback/Feedback.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我要留言</view>
+</cu-custom>
+<view class="content-box">
+  <text class="title"><text style="color:red;">*</text>留言</text>
+  <view class="cu-form-group margin-top">
+    <textarea maxlength="100" bindinput="textareaAInput" placeholder="无论是意见还是赞赏都可以在这里进行留言" auto-height="true"
+      class="textarea"></textarea>
+  </view>
+  <button bindtap="submit" class="btn cu-btn bg-skyblue" style="width:100%;">提交</button>
+
+  <view style="text-align:center;" bindtap="historyJump">
+    历史反馈
+  </view>
+</view>

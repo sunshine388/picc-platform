@@ -1,0 +1,22 @@
+<!--pages/patient/mycenter/maintainRecord/maintainRecord.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">维护记录</view>
+</cu-custom>
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+<view class="box" wx:if="{{!loading}}" wx:for="{{maintainInfo}}">
+  <van-cell title="维护日期" value="{{item.maintain_date}}" />
+  <van-cell title="管路是否通畅" value="{{item.pipeline_unobstructed}}" />
+  <van-cell title="是否更换敷料" value="{{item.change_dressing}}" />
+  <van-cell title="是否更换接头" value="{{item.replace_connector}}" />
+  <van-cell title="有无阻力" value="{{item.resistance}}" />
+  <van-cell wx:if="{{!item.companion}}" title="并发症" value="无" />
+  <van-collapse wx:else value="{{ activeNames}}" bind:change="onChange">
+    <van-collapse-item title="并发症" name="{{item.id}}" value="{{item.companion}}">
+      {{item.treatment_process}}
+    </van-collapse-item>
+  </van-collapse>
+</view>

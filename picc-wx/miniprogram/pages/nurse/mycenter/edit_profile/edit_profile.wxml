@@ -1,0 +1,55 @@
+<!--pages/nurse/mycenter/edit_profile/edit_profile.wxml-->
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">编辑资料</view>
+</cu-custom>
+
+<view>
+  <form bindsubmit="formSubmit">
+    
+    <view class="cu-form-group">
+      <view class="title">工号</view>
+      <input name="jobnumber" value="{{jobnumber}}" type="text" placeholder="请输入工号" disabled></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">姓名</view>
+      <input id="username" name="username" value="{{username}}" type="text" placeholder="请输入姓名" disabled></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">科室</view>
+      <picker bindchange="PickerChange" value="{{index}}" range="{{department}}">
+        <view class="picker">
+          {{department[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">性别</view>
+      <radio-group class="block" name="sex">
+        <radio checked="{{checked}}" value="男"></radio>
+        <text class="title">男</text>
+        <radio checked="{{!checked}}" class="margin-left-sm"  value="女"></radio>
+        <text class="title">女</text>
+      </radio-group>
+    </view>
+
+    <view class="cu-form-group">
+      <view class="title">手机号码</view>
+      <input name="phone" value="{{phone}}" type="text" placeholder="请输入输入手机号"></input>
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-blue">
+          +86
+        </view>
+        <view class="cu-tag line-blue">
+          中国大陆
+        </view>
+      </view>
+    </view>
+    
+
+    <view class="padding-top flex flex-direction">
+      <button class="cu-btn bg-skyblue lg" style="margin:20rpx;" formType="submit">点击修改个人信息</button>
+    </view>
+  </form>
+</view>

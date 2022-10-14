@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<image src='/images/common/bg.png' mode='widthFix' class='png bg_img'></image>
+<view style="padding-top:10vw">
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-skyblue lg margin" bindtap="becomePatient">我是病人</button>
+    <button class="cu-btn bg-skyblue lg margin" bindtap="becomeNurse">本院职工</button>
+    <button class="cu-btn bg-skyblue lg margin" bindtap="becomeSpeciaList">外院专家</button>
+  </view>
+  <!--
+  <view class="padding flex justify-around">
+    <view  class="iamge_item_left" bindtap="becomePatient">
+      <image class="iamge_content" src="/images/common/patient.png" />
+      <text  class='text' decode="{{true}}">我是病人</text>
+    </view>
+    <view  class="iamge_item_left" bindtap="becomeNurse">
+      <image class="iamge_content" src="/images/common/nurse.png" />
+      <text  class='text' decode="{{true}}">本院职工</text>
+    </view>
+    <view  class="iamge_item_left" bindtap="becomeSpeciaList">
+      <image class="iamge_content" src="/images/common/nurse.png" />
+      <text  class='text' decode="{{true}}">外院专家</text>
+    </view>
+  </view>
+  -->
+</view>

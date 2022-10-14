@@ -1,0 +1,24 @@
+<!--pages/patient/mycenter/FeedbackHistory/FeedbackHistory.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">历史反馈</view>
+</cu-custom>
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+<view class="box" wx:if="{{!loading}}" wx:for="{{opinionList}}">
+
+  <van-cell title="反馈时间" value="{{item.ctime}}" />
+  <van-collapse value="{{ activeNames1 }}" bind:change="onChange1">
+    <van-collapse-item title="反馈问题" name="{{item.id}}" value="查看">
+      {{item.problem}}
+    </van-collapse-item>
+  </van-collapse>
+  <van-collapse value="{{ activeNames2 }}" bind:change="onChange2">
+    <van-collapse-item wx:if="{{item.solution}}" title="已解决" name="{{item.id}}" value="查看">
+      {{item.solution}}
+    </van-collapse-item>
+  </van-collapse>
+  <van-cell wx:if="{{!item.solution}}" title="尚未解决" value="" />
+</view>

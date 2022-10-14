@@ -1,0 +1,14 @@
+/* pages/nurse/mycenter/myPatient/myPatient.wxss */
+.cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.radio {
+  top: 12rpx;
+  position: relative;
+}
+.button {
+  top: -40rpx;
+  position: relative;
+}

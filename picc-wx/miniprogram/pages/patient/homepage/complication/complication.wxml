@@ -1,0 +1,48 @@
+<!--pages/patient/homepage/complication/complication.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">常见并发症查看</view>
+</cu-custom>
+
+<view class="content">
+  <view class="box">
+    <view class="title">picc常见并发症</view>
+    <van-collapse value="{{ activeNames }}" bind:change="onChange">
+      <van-collapse-item title="(1) 静脉炎" name="1">
+        依照美国静脉输液护理学会静脉炎分级诊断标准[29]，将静脉炎分为 3 级。
+        <view>Ⅰ级：穿刺点疼痛、红和（或）肿，静脉无条索状改变，未触及硬结；</view>
+        <view>Ⅱ级：穿刺点疼痛、红和（或）肿，静脉有条索状改变，未触及硬结；</view>
+        <view>Ⅲ级：穿刺点疼痛、红和（或）肿，静脉有条索状改变，可触及硬结。</view>
+      </van-collapse-item>
+      <van-collapse-item title="(2) 皮肤过敏" name="2">
+        轻度仅有局部皮肤瘙痒及轻微红斑（面积约为 5cm×5cm 以内）；
+        <view>中度表现为局部皮肤瘙痒，穿刺点周围皮肤散在红斑、丘疹、潮湿，面积约为 5cm×5cm 以上，部分散在粟粒状皮疹；</view>
+        <view>重度表现出现水疱、糜烂、渗出，面积 10cm×10cm 以上，抓痒后可使发红的面积增大，夜间不能入睡和睡眠差，影响生活质量。</view>
+      </van-collapse-item>
+      <van-collapse-item title="(3) 穿刺点出血" name="3">
+        0 级：24h 内敷料有少量渗血，属正常现象；
+        <view> Ⅰ级：活动时穿刺点渗血，渗湿敷料；</view>
+        <view> Ⅱ级：平卧时穿刺点渗血，渗湿敷料；</view>
+        <view>Ⅲ级：穿刺点渗血不止，沿 PICC 管壁流出[31]。</view>
+      </van-collapse-item>
+      <van-collapse-item title="(4) 导管堵塞" name="4">
+        分完全堵管和不完全堵管。
+        <view>完全堵管指不能推注液体，也不能从导管抽到回血；</view>
+        <view>不完全堵管指液体滴速减慢，推注液体感到有阻力，不能从导管抽到回血。</view>
+      </van-collapse-item>
+      <van-collapse-item title="(5) 导管脱出" name="5">
+        轻度脱出：导管脱出体外1~5cm，
+        <view>中度脱出：导管脱出体外5~10cm，</view>
+        <view>重度脱出：导管脱出体外10cm以上。</view>
+      </van-collapse-item>
+      <van-collapse-item title="(6) 导管感染" name="6">
+        导管感染：表现：穿刺点处红、肿、疼痛或有脓性分泌物等，
+        <view>定性：对分泌物进行培养证实为细菌感染。</view>
+      </van-collapse-item>
+      <van-collapse-item title="(7) 血栓" name="7">
+        表现：术肢出现肿胀、肌肉酸痛，
+        <view>定性：行血管 B 超检查证实有血栓形成。</view>
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/patient/mycenter/appointmentRecord/appointmentRecord.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">预约记录</view>
+</cu-custom>
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+<view wx:if="{{!noData}}" wx:for="{{appointmentList}}" class="box">
+  <van-cell-group>
+    <van-cell title="预约医生" value="{{item.nurseName}}" />
+    <van-cell title="预约时间" >
+      <view slot="">
+        <view class="van-cell-text">{{item.appointmentDate}}-{{item.appointmentTime}}</view>
+      </view>
+    </van-cell>
+    <van-cell title="预约类型" value="{{item.type}}" />
+    <van-cell title="创建时间" value="{{item.ctime}}" />
+    <van-cell title="状态">
+      <view slot="" class="slot">
+        <view class="van-cell-text {{item.color}}">{{item.step}}</view>
+        <button data-id="{{item.id}}" wx:if="{{item.showCancelBtn}}" class="cu-btn round margin-left-sm" bindtap="cancel">取消</button>
+        <button data-id="{{item.id}}" wx:if="{{item.showDeleteBtn}}" class="cu-btn round margin-left-sm" bindtap="delete">删除</button>
+      </view>
+    </van-cell>
+  </van-cell-group>
+</view>

@@ -1,0 +1,32 @@
+<!--pages/nurse/homepage/mySchedule/mySchedule.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的排期</view>
+</cu-custom>
+
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+
+<view wx:if="{{!noData}}" style="padding-bottom:80rpx;">
+  <view class="appointment" wx:for="{{appointment}}">
+    <view formType="submit" class="left">
+      <text>{{item.date}}</text>
+      <view class="label round">{{item.label}}</view>
+    </view>
+    <view wx:if="{{item.forenoon||item.afternoon}}">
+      <view wx:if="{{item.forenoon}}" class="right">
+        <text>上午</text>
+        <text>已约人数：{{item.forenoonNumber}}</text>
+      </view>
+      <view wx:if="{{item.afternoon}}" class="right">
+        <text>下午</text>
+        <text>已约人数：{{item.afternoonNumber}}</text>
+      </view>
+    </view>
+    <view wx:else class="right">
+      <text>未排期</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,259 @@
+<!--pages/nurse/homepage/upload/upload.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">信息上传</view>
+</cu-custom>
+<view wx:if="{{type==1}}">
+	<form>
+		<view class="cu-form-group">
+			<view class="title">疾病类型</view>
+			<input placeholder="请输入疾病类型" model:value="{{diseaseType}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">化疗次数</view>
+			<input placeholder="请输入化疗次数" type="number" model:value="{{chemotherapyNumber}}"></input>
+		</view>
+		<view class="cu-form-group" style="border-bottom:1rpx solid #eee;">
+			<view class="title">是否首次置管</view>
+			<radio-group class="block" name="firstCatheter" bindchange="radioChange1">
+				<radio checked value="true"></radio>
+				<text class="title">是</text>
+				<radio class="margin-left-sm" value="false"></radio>
+				<text class="title">否</text>
+			</radio-group>
+		</view>
+		<van-cell title="请选择置管时间" is-link bind:click="showPopup1" value="{{time1}}"/>
+		<van-popup show="{{ show1 }}" position="bottom">
+				<van-datetime-picker type="date" value="{{ currentDate }}"
+					min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:confirm="confirm1" bind:cancel="cancel1" />
+		</van-popup>
+
+		<view class="cu-form-group"  style="border-top:1rpx solid #eee;">
+			<view class="title">置管时机</view>
+			<picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+				<view class="picker">
+					{{index1?picker1[index1]:'请选择置管时机'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管型号</view>
+			<picker bindchange="PickerChange2" value="{{index2}}" range="{{picker2}}">
+				<view class="picker">
+					{{index2?picker2[index2]:'请选择导管型号'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管规格</view>
+			<input placeholder="请输入导管规格"  model:value="{{catheterSpecification}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管批号</view>
+			<input placeholder="请输入导管批号" model:value="{{catheterBatchnumber}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管长度</view>
+			<input placeholder="请输入导管长度(cm)" type="digit" model:value="{{catheterLength}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">穿刺方法</view>
+			<picker bindchange="PickerChange3" value="{{index3}}" range="{{picker3}}">
+				<view class="picker">
+					{{index3?picker3[index3]:'请选择穿刺方法'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">置管部位</view>
+			<picker bindchange="PickerChange4" value="{{index4}}" range="{{picker4}}">
+				<view class="picker">
+					{{index4?picker4[index4]:'请选择置管部位'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">置管手臂</view>
+			<picker bindchange="PickerChange5" value="{{index5}}" range="{{picker5}}">
+				<view class="picker">
+					{{index5?picker5[index5]:'请选择置管手臂'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">置管静脉</view>
+			<picker bindchange="PickerChange6" value="{{index6}}" range="{{picker6}}">
+				<view class="picker">
+					{{index6?picker6[index6]:'请选择置管静脉'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管尖端位置</view>
+			<picker bindchange="PickerChange7" value="{{index7}}" range="{{picker7}}">
+				<view class="picker">
+					{{index7?picker7[index7]:'请选择导管尖端位置'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管插入长度</view>
+			<input placeholder="请输入导管插入长度(cm)" type="number" model:value="{{catheterInsertionLength}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管外露长度</view>
+			<input placeholder="请输入导管外露长度(cm)" type="number" model:value="{{catheterExposedLength}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">臂围</view>
+			<input placeholder="请输入臂围" model:value="{{armCircumference}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管品牌</view>
+			<input placeholder="请输入导管品牌" model:value="{{catheterBrand}}"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">第几次置管</view>
+			<van-stepper value="{{ numberOfCatheterization }}" async-change bind:change="onChange" />
+		</view>
+    <view class="cu-form-group">
+      <view class="title">置管医院</view>
+      <picker bindchange="PickerChange8" value="{{index8}}" range="{{picker8}}">
+        <view class="picker">
+          {{index8?picker8[index8]:'请选择置管医院'}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group" wx:if="{{index8==1}}">
+      <input name="catheterHospital" value="{{catheterHospital}}" type="text" placeholder="请输入置管医院"></input>
+    </view>
+	</form>
+	<button  style="width:90vw"  class="btn" bindtap="upload">上传</button>
+</view>
+<view wx:if="{{type==2}}">
+	<form>
+		<van-cell title="请选择维护日期" is-link bind:click="showPopup2" value="{{time2}}"/>
+		<van-popup show="{{ show2 }}" position="bottom">
+				<van-datetime-picker type="date" value="{{ currentDate }}"
+					min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:confirm="confirm2" bind:cancel="cancel2" />
+		</van-popup>
+		<view class="cu-form-group" style="border-top:1rpx solid #eee;">
+			<view class="title">导管是否通畅</view>
+			<radio-group class="block"  bindchange="radioChange2">
+				<radio checked value="true"></radio>
+				<text class="title">是</text>
+				<radio class="margin-left-sm" value="false"></radio>
+				<text class="title">否</text>
+			</radio-group>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">是否更换敷料</view>
+			<radio-group class="block" bindchange="radioChange3">
+				<radio checked value="true"></radio>
+				<text class="title">是</text>
+				<radio class="margin-left-sm" value="false"></radio>
+				<text class="title">否</text>
+			</radio-group>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">是否更换接头</view>
+			<radio-group class="block" bindchange="radioChange4">
+				<radio checked value="true"></radio>
+				<text class="title">是</text>
+				<radio class="margin-left-sm" value="false"></radio>
+				<text class="title">否</text>
+			</radio-group>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">有无阻力</view>
+			<radio-group class="block" bindchange="radioChange5">
+				<radio value="true"></radio>
+				<text class="title">有</text>
+				<radio checked class="margin-left-sm" value="false"></radio>
+				<text class="title">无</text>
+			</radio-group>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">有无并发症</view>
+			<radio-group class="block" bindchange="radioChange6">
+				<radio value="true"></radio>
+				<text class="title">有</text>
+				<radio checked class="margin-left-sm" value="false"></radio>
+				<text class="title">无</text>
+			</radio-group>
+		</view>
+    <view class="cu-form-group" wx:if="{{hasCompanion==='true'}}">
+      <view class="title">并发症</view>
+      <picker bindchange="PickerChange9" value="{{index9}}" range="{{picker9}}">
+        <view class="picker">
+          {{index9?picker9[index9]:'请选择并发症'}}
+        </view>
+      </picker>
+    </view>
+		<view class="cu-form-group" wx:if="{{hasCompanion==='true'&&index9==8}}">
+			<input placeholder="请输入并发症" model:value="{{companion}}"></input>
+		</view>
+		<view class="cu-form-group align-start" wx:if="{{hasCompanion==='true'}}">
+			<view class="title">处理方法</view>
+			<textarea placeholder="请输入处理方法" model:value="{{treatmentProcess}}"></textarea>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">是否有回血</view>
+			<radio-group class="block" bindchange="radioChange7">
+				<radio value="true"></radio>
+				<text class="title">有</text>
+				<radio checked class="margin-left-sm" value="false"></radio>
+				<text class="title">无</text>
+			</radio-group>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管外露长度</view>
+			<input placeholder="请输入导管外露长度" model:value="{{catheterExposedLength}}"></input>
+		</view>
+	</form>
+	<button style="width:90vw" class="btn" bindtap="upload">上传</button>
+</view>
+<view wx:if="{{type==3}}">
+	<form>
+		
+		<van-cell title="请选择拔管时间" is-link bind:click="showPopup3" value="{{time3}}"/>
+		<van-popup show="{{ show3 }}" position="bottom">
+				<van-datetime-picker type="datetime" value="{{ currentDate }}"
+					min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:confirm="confirm3" bind:cancel="cancel3" />
+		</van-popup>
+		<view class="cu-form-group" style="border-top:1rpx solid #eee;">
+			<view class="title">留置天数</view>
+			<input placeholder="请输入留置天数" type="number" model:value="{{indwellingTime}}"></input>
+		</view>
+		<view class="cu-form-group" wx:if="{{hasCompanion==='true'}}">
+      <view class="title">拔管原因</view>
+      <picker bindchange="PickerChange10" value="{{index10}}" range="{{picker10}}">
+        <view class="picker">
+          {{index10?picker10[index10]:'请选择拔管原因'}}
+        </view>
+      </picker>
+    </view>
+		<view class="cu-form-group" wx:if="{{hasCompanion==='true'&&index10==1}}">
+			<textarea placeholder="请输入具体原因" model:value="{{reason}}"></textarea>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">导管末端是否完整</view>
+			<radio-group class="block" bindchange="radioChange8">
+				<radio checked value="true"></radio>
+				<text class="title">是</text>
+				<radio class="margin-left-sm" value="false"></radio>
+				<text class="title">否</text>
+			</radio-group>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">拔管过程是否顺利</view>
+			<radio-group class="block" bindchange="radioChange9">
+				<radio checked value="true"></radio>
+				<text class="title">是</text>
+				<radio class="margin-left-sm" value="false"></radio>
+				<text class="title">否</text>
+			</radio-group>
+		</view>
+	</form>
+	<button style="width:90vw" class="btn" bindtap="upload">上传</button>
+</view>

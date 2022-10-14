@@ -1,0 +1,55 @@
+/* pages/patient/homepage/consult/consult.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+.content{
+  padding:0 30rpx 0 30rpx;
+  margin-top:50rpx;
+  margin-bottom:100rpx;
+}
+.text{
+  line-height:80rpx;
+  font-size:40rpx;
+  font-weight: 600;
+}
+.box{
+  background:#ffffff;
+  border-radius:20rpx;
+  margin-bottom: 25rpx;
+  padding:20rpx;
+  display:flex;
+  justify-content: space-between;
+}
+.title{
+  line-height:80rpx;
+  font-size:30rpx;
+  font-weight: 600;
+}
+
+.card{
+  display:flex;
+  flex-direction: column;
+  height:auto;
+  background-color:#ffffff;
+  border-radius: 14rpx;
+  box-shadow:4px 4px 6px gray;
+  margin:20rpx 20rpx 30rpx 20rpx;
+}
+.head{
+  display:flex;
+  padding:15rpx 0;
+}
+.avatar{   
+  height: 120rpx;    
+  width: 120rpx;    
+  border-radius: 50%;
+  margin:20rpx 35rpx 0 20rpx;
+}
+.info{
+  height:140rpx;
+  display:flex;
+  flex-direction: column;
+  line-height:48rpx;
+}
+.btn{
+  margin:20rpx;
+}

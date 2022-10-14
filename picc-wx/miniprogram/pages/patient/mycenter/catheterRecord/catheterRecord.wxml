@@ -1,0 +1,34 @@
+<!--pages/patient/mycenter/catheterRecord/catheterRecord.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">置管记录</view>
+</cu-custom>
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+<view wx:if="{{!loading}}">
+  <van-cell-group>
+    <van-cell title="疾病类型" value="{{ catheterInfo.disease_type }}" />
+    <van-cell title="是否首次置管" value="{{ catheterInfo.first_catheter}}" />
+    <van-cell title="第几次置管" value="第{{ catheterInfo.number_of_catheterization }}次" />
+    <van-cell title="置管医院" value="{{ catheterInfo.catheter_hospital }}" />
+    <van-cell title="置管科室" value="{{ catheterInfo.catheter_department }}" />
+    <van-cell title="置管时间" value="{{ catheterInfo.catheter_time }}" />
+    <van-cell title="化疗次数" value="{{ catheterInfo.chemotherapy_number }}次" />
+    <van-cell title="置管时机" value="{{ catheterInfo.catheter_opportunity }}" />
+    <van-cell title="导管品牌" value="{{ catheterInfo.catheter_brand }}" />
+    <van-cell title="导管型号" value="{{ catheterInfo.catheter_model }}" />
+    <van-cell title="导管规格" value="{{ catheterInfo.catheter_specification}}" />
+    <van-cell title="导管批号" value="{{ catheterInfo.catheter_batchnumber }}" />
+    <van-cell title="导管长度" value="{{ catheterInfo.catheter_length }}cm" />
+    <van-cell title="穿刺方法" value="{{ catheterInfo.puncture_method }}" />
+    <van-cell title="置管部位" value="{{ catheterInfo.catheter_site }}" />
+    <van-cell title="置管手臂" value="{{ catheterInfo.catheter_arm }}" />
+    <van-cell title="置管静脉" value="{{ catheterInfo.catheter_vein }}" />
+    <van-cell title="导管尖端位置" value="{{ catheterInfo.catheter_tip_position }}" />
+    <van-cell title="导管插入长度" value="{{ catheterInfo.catheter_insertion_length }}cm" />
+    <van-cell title="导管外露长度" value="{{ catheterInfo.catheter_exposed_length }}cm" />
+    <van-cell title="臂围" value="{{ catheterInfo.arm_circumference }}" />
+  </van-cell-group>
+</view>

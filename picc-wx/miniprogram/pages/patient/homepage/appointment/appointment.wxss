@@ -1,0 +1,47 @@
+/* pages/patient/homepage/appointment/appointment.wxss */
+.head {
+  line-height: 80rpx;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.appointment {
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+  margin:0 20rpx 0 20rpx;
+}
+
+.left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 310rpx;
+}
+
+.label {
+  border:1rpx solid #1cbbb4;
+  padding: 10rpx 25rpx 10rpx 25rpx;
+  color:#1cbbb4;
+}
+
+.right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 400rpx;
+  padding:10rpx;
+}
+
+.bottom {
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  background:#fff;
+}

@@ -1,0 +1,72 @@
+<!--pages/nurse/mycenter/patientItem/patientItem.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">患者管理</view>
+</cu-custom>
+<view wx:if="!loading">
+  <form bindsubmit="formSubmit" wx:if="{{noData1}}">
+    <view class="cu-form-group">
+      <view class="title">患者姓名</view>
+      <input name="patientname" value="{{patientname}}" type="text" placeholder=" " disabled></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">体温</view>
+      <input name="animalHeat" value="{{animalHeat}}" type="text" placeholder="请输入体温"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">导管类型</view>
+      <picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+        <view class="picker">
+          {{index1?picker1[index1]:'请选择导管类型'}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group" wx:if="{{index1==2}}">
+      <input name="catheterType" value="{{catheterType}}" type="text" placeholder="请输入导管类型"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">既往史</view>
+      <picker bindchange="PickerChange2" value="{{index2}}" range="{{picker2}}">
+        <view class="picker">
+          {{index2?picker2[index2]:'请选择既往史'}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group" wx:if="{{index2==4}}">
+      <input name="previousHistory" value="{{previousHistory}}" type="text" placeholder="请输入既往史"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">药物过敏史</view>
+      <input name="drugAllergyHistory" value="{{drugAllergyHistory}}" type="text" placeholder="请输入药物过敏史" ></input>
+    </view>
+    <view class="padding-top flex flex-direction">
+      <button class="cu-btn bg-skyblue lg" style="margin:20rpx;" formType="submit">提交</button>
+    </view>
+  </form>
+  <view style="text-align:center;position:fixed;z-index:999;background:#fff;width:100%;" wx:if="{{!noData1}}">
+    <van-row>
+      <van-col span="5">姓名</van-col>
+      <van-col span="4">体温</van-col>
+      <van-col span="5">导管类型</van-col>
+      <van-col span="5">既往史</van-col>
+      <van-col span="5">药物过敏史</van-col>
+      <van-col span="5">{{piccInformation.patientname}}</van-col>
+      <van-col span="4">{{piccInformation.animalHeat}}</van-col>
+      <van-col span="5">{{piccInformation.catheterType}}</van-col>
+      <van-col span="5">{{piccInformation.previousHistory}}</van-col>
+      <van-col span="5">{{piccInformation.drugAllergyHistory}}</van-col>
+    </van-row>
+  </view>
+  <view style="height:80rpx;" wx:if="{{!noData1}}"></view>
+  <view wx:if="{{noData2}}" style="text-align:center;"> 暂无档案记录</view>
+  <view class="box" wx:for="{{recordInfo}}" wx:if="{{!noData2}}">
+    <van-cell title="档案编号" value="{{item.recordNum}}" />
+    <van-cell title="生成日期" value="{{item.ctime}}" />
+    <van-cell is-link title="查看置管记录" link-type="navigateTo"
+      url="/pages/nurse/mycenter/catheterRecord/catheterRecord?num={{item.recordNum}}" />
+    <van-cell is-link title="查看维护记录" link-type="navigateTo"
+      url="/pages/nurse/mycenter/maintainRecord/maintainRecord?num={{item.recordNum}}" />
+    <van-cell is-link title="查看拔管记录" link-type="navigateTo"
+      url="/pages/nurse/mycenter/extubationRecord/extubationRecord?num={{item.recordNum}}" />
+  </view>
+</view>

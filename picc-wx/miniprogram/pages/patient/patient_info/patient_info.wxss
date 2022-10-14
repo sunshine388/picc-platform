@@ -1,0 +1,7 @@
+/* pages/patient/information/information.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.btn{
+  width:30px;
+}

@@ -1,0 +1,21 @@
+<!--pages/nurse/audit_result/audit_result.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">审核结果</view>
+</cu-custom>
+<view class="content-box">
+  <view wx:if="{{state==0}}">
+    <text class="text">资料已提交，请等待审核</text>
+    <view class="padding fs260">
+        <text class="cuIcon-timefill text-blue"></text>
+    </view>
+    <button class="cu-btn round bg-blue shadow lg" bindtap="backJump">点击返回</button>
+  </view>
+  <view wx:else="{{state==-1}}">
+    <text class="text text-red">审核不通过，请重新填写信息表</text>
+    <view class="padding fs260">
+        <text class="cuIcon-roundclosefill text-red"></text>
+    </view>
+    <button class="cu-btn round bg-blue shadow lg" bindtap="formJump">点击填写</button>
+  </view>
+</view>

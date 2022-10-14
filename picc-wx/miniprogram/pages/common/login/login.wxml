@@ -1,0 +1,17 @@
+<!--pages/common/login/login.wxml-->
+<view wx:if="{{canIUse}}">
+  <view class="wxpng">
+    <image src='/images/common/wx.png'></image>
+  </view>
+  <view class='Wxtxt'>
+    <view>申请获取以下权限</view>
+    <text>获得你的公开信息(昵称，头像等)</text>
+  </view>
+
+  <button class='wxlogin' type='primary' open-type="getUserInfo" bind:getuserinfo="wxLogin">授权登录</button>
+  <!-- 登录后使用open-data -->
+  <view class="avatar-container avatar-position">
+  </view>
+
+</view>
+<view wx:else>请升级微信版本</view>

@@ -1,0 +1,23 @@
+/* pages/patient/homepage/knowledge/knowledge.wxss */
+
+.content{
+  padding:0 30rpx 0 30rpx;
+  margin-top:20rpx;
+  margin-bottom:100rpx;
+}
+.text{
+  line-height:80rpx;
+  font-size:40rpx;
+  font-weight: 600;
+}
+.box{
+  background:#ffffff;
+  border-radius:20rpx;
+  margin-bottom: 25rpx;
+  padding:20rpx;
+}
+.title{
+  line-height:80rpx;
+  font-size:30rpx;
+  font-weight: 600;
+}

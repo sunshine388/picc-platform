@@ -1,0 +1,34 @@
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg">
+    <view slot="content">
+      我的消息
+    </view>
+  </cu-custom>
+  <demo-block wx:if="{{noData}}">
+    <van-empty description='暂无数据信息'>
+    </van-empty>
+  </demo-block>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{chatList}}" bindtap="messageItemJump"
+    data-target="move-box-{{index}}" data-index="{{index}}">
+      <!--
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{chatList}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" bindtap="messageItemJump" data-target="move-box-{{index}}">-->
+      <view class="cu-avatar round lg"
+        style="background-image:url({{item.avatarUrl}});">
+      </view>
+      <view class="content">
+        <view class="text-black">{{item.name}}</view>
+        <view class="text-gray text-sm">
+           {{item.textContent}}</view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">{{item.label}}</view>
+        <!--<view class="cu-tag round bg-grey sm">5</view>-->
+      </view>
+      <view class="move">
+        <view class="bg-grey">置顶</view>
+        <view class="bg-red">删除</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

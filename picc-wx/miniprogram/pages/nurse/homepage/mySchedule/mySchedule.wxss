@@ -1,0 +1,31 @@
+/* pages/nurse/homepage/mySchedule/mySchedule.wxss */
+
+.appointment {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+  margin:0 20rpx 0 20rpx;
+}
+
+.left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 310rpx;
+}
+
+.label {
+  border:1rpx solid #1cbbb4;
+  padding: 5rpx 15rpx 5rpx 15rpx;
+  color:#1cbbb4;
+}
+
+.right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 400rpx;
+  padding:10rpx;
+}

@@ -1,0 +1,14 @@
+<view class="content">
+    <text class="text">同行交流</text>
+    <view wx:for="{{nurseList}}" class="card">
+      <view class="head">
+        <image class="avatar" src='{{item.avatar_url}}'></image>
+        <view class="info">
+          <text>医生姓名:{{item.nursename}}</text>
+          <text>性别:{{item.sex}}</text>
+          <text>科室:{{item.department}}</text>
+        </view>
+      </view>
+      <button class="btn cu-btn bg-skyblue" data-index="{{index}}" bindtap="consultJump">交流</button>
+    </view>
+  </view>

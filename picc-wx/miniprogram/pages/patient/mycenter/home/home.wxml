@@ -1,0 +1,32 @@
+<!--pages/patient/mycenter/home/home.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="top">
+    <image class='top-bg' src='/images/common/txbj.jpg'></image>
+    <image class="avatar" src='{{userInfo.avatarUrl}}'></image>
+    <view class="text-df">{{patientInfo.username}}</view>
+    <text bindtap="editProfileJump">编辑资料</text>
+  </view>
+  <view class="content-box">
+    <view class="cell">
+      <text class="cuIcon-writefill text-cyan"></text>
+      <text class="title">患者编号</text>
+      <text class="cell-content">{{patientInfo.patientnumber}}</text>
+    </view>
+    <view class="cell" bindtap="appointmentRecordJump">
+        <text class="cuIcon-writefill text-blue"></text>
+        <text class="title">预约记录</text>
+      <text class="cuIcon-right" style="float:right;"></text>
+    </view>
+    <view class="cell" bindtap="recordJump">
+        <text class="cuIcon-discoverfill text-orange"></text>
+        <text class="title">picc档案</text>
+      <text class="cuIcon-right" style="float:right;"></text>
+    </view>
+    <view class="cell" bindtap="FeedbackJump">
+        <text class="cuIcon-questionfill text-red"></text>
+        <text class="title">我要留言</text>
+      <text class="cuIcon-right" style="float:right;"></text>
+    </view>
+  </view>
+  <button style="width:90vw" class="logout-btn" bindtap="logout">退出登录</button>
+</scroll-view>

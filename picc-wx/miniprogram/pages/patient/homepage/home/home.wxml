@@ -1,0 +1,37 @@
+<!--pages/patient/homepage/home/home.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/qpct2148.jpg">
+    <view slot="content">首页</view>
+  </cu-custom>
+  <!--
+  <view class="search-back">
+    <view class="search-box">
+      <text class="cuIcon-search search-icon"></text>
+      <input type="text" placeholder="搜索" confirm-type="search" bindinput="searchIcon"></input>
+    </view>
+  </view>-->
+  <view class="content">
+    <text class="text">就医指南</text>
+    <view class='nav-list' style="display:flex;justify-content:center;align-items: center;flex-direction:column;">
+      <navigator hover-class='none' url="/pages/patient/homepage/{{item.name}}/{{item.name}}" class="bg-{{item.color}}"
+        wx:for="{{elements}}" wx:key style="margin:20rpx;padding:20rpx;display:flex;justify-content:space-between;width:600rpx;border-radius:10rpx;">
+        <view class="nav-title">
+          <view style="font-size:50rpx;">{{item.title}}</view>
+          <view class="nav-name">{{item.name}}</view>
+        </view>
+        <text class='cuIcon-{{item.icon}}' style="font-size:100rpx;"></text>
+      </navigator>
+    </view>
+    <text class="text">维护时间提醒</text>
+    <view wx:if="{{isClock}}" style="font-size:34rpx;">
+      <view class="box" wx:if="{{!hasCatheter}}">
+        ！ 您尚未置管，请先置管
+      </view>
+      <view class="box" wx:if="{{hasCatheter}}">
+        <text>下次维护时间：{{date}}</text>
+        <text wx:if="{{!isTimeout}}">还剩<text style="color:green;font-weight:600;">{{days}}</text>天</text>
+        <text wx:else>已超<text style="color:red;font-weight:600;">{{days}}</text>天</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

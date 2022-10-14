@@ -1,0 +1,36 @@
+<!--pages/patient/mycenter/piccRecord/piccRecord.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">picc档案</view>
+</cu-custom>
+<demo-block wx:if="{{noData}}">
+  <van-empty description='暂无数据信息'>
+  </van-empty>
+</demo-block>
+<view wx:if="{{!loading}}">
+  <view style="text-align:center;position:fixed;z-index:999;background:#fff;width:100%;">
+    <van-row>
+      <van-col span="5">姓名</van-col>
+      <van-col span="4">体温</van-col>
+      <van-col span="5">导管类型</van-col>
+      <van-col span="5">既往史</van-col>
+      <van-col span="5">药物过敏史</van-col>
+      <van-col span="5">{{piccInformation.patientname}}</van-col>
+      <van-col span="4">{{piccInformation.animalHeat}}</van-col>
+      <van-col span="5">{{piccInformation.catheterType}}</van-col>
+      <van-col span="5">{{piccInformation.previousHistory}}</van-col>
+      <van-col span="5">{{piccInformation.drugAllergyHistory}}</van-col>
+    </van-row>
+  </view>
+  <view style="height:80rpx;"></view>
+  <view class="box" wx:for="{{recordInfo}}">
+    <van-cell title="档案编号" value="{{item.recordNum}}" />
+    <van-cell title="生成日期" value="{{item.ctime}}" />
+    <van-cell is-link title="查看置管记录" link-type="navigateTo"
+      url="/pages/patient/mycenter/catheterRecord/catheterRecord?num={{item.recordNum}}" />
+    <van-cell is-link title="查看维护记录" link-type="navigateTo"
+      url="/pages/patient/mycenter/maintainRecord/maintainRecord?num={{item.recordNum}}" />
+    <van-cell is-link title="查看拔管记录" link-type="navigateTo"
+      url="/pages/patient/mycenter/extubationRecord/extubationRecord?num={{item.recordNum}}" />
+  </view>
+</view>

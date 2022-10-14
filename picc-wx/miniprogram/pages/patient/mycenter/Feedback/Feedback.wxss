@@ -1,0 +1,14 @@
+/* pages/patient/mycenter/Feedback/Feedback.wxss */
+.content-box{
+  padding:20rpx;
+}
+.title{
+  line-height: 40rpx;
+  margin-left:20rpx;
+}
+.textarea{
+  min-height:200rpx;
+}
+.btn{
+  margin:40rpx 0 40rpx 0;
+}

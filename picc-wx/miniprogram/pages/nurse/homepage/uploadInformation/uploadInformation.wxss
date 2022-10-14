@@ -1,0 +1,15 @@
+/* pages/nurse/homepage/uploadInformation/uploadInformation.wxss */
+.box{
+  height:auto;
+  padding:20rpx;
+}
+.slot{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+.colorF03131{color: #F03131;}
+.color5984F5{color: #5984F5;}
+.colorE77C2D{color: #E77C2D;}
+.color65C03D{color: #65C03D;}

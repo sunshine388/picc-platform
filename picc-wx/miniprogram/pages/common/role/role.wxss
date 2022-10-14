@@ -1,0 +1,32 @@
+/* pages/common/role/role.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+.bg_img {
+  width: 100%;
+  height: 486rpx;
+}
+
+.iamge_item_right {
+  margin-right: 80rpx;
+  width: 155rpx;
+  height: 200rpx;
+}
+
+.iamge_item_left {
+  margin-left: 80rpx;
+  width: 155rpx;
+  height: 200rpx;
+}
+
+.iamge_content {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.text {
+  display:block;
+  margin: 20rpx 0 0 20rpx;
+  font-size: 30rpx;
+}

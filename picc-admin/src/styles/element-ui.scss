@@ -1,0 +1,66 @@
+@import './public';
+
+// 自定义 element-ui 的默认样式
+
+.el-submenu .el-menu-item,
+.el-menu-item,
+.el-submenu__title {
+  height: 44px;
+  line-height: 44px;
+}
+
+.el-tabs__item {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 16px;
+}
+
+.el-tree-node__label {
+  @extend .text-ellipsis;
+}
+
+.el-dialog__header {
+  background: #1890ff;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.el-dialog__title {
+  display: inline-block;
+  height: 24px;
+  color: #fff;
+}
+
+.el-dialog__headerbtn {
+  top: 15px;
+  .el-dialog__close {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.el-breadcrumb {
+  background-color: #d3dce6;
+  height: 45px;
+  font-size: 15px;
+  padding-left: 10px;
+  line-height: 45px;
+  margin-bottom: 15px;
+}
+
+.el-table {
+  width: 100%;
+}
+.el-pagination {
+  text-align: center;
+}
+.currentpage {
+  color: #008cdd !important;
+  font-size: 18px;
+}
+
+.message-zIndex {
+  z-index: 9999 !important;
+}

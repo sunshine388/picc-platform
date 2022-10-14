@@ -1,0 +1,33 @@
+<!--pages/patient/homepage/consult/consult.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">咨询医生</view>
+</cu-custom>
+<view>
+  <view class="content">
+    <text class="text">我的医生</text>
+    <view wx:if="{{noBinding}}">您还未绑定医生</view>
+    <view wx:else class="card">
+      <view class="head">
+        <image class="avatar" src='{{bindingNurse.avatar_url}}'></image>
+        <view class="info">
+          <text>医生姓名:{{bindingNurse.nursename}}</text>
+          <text>性别:{{bindingNurse.sex}}</text>
+          <text>科室:{{bindingNurse.department}}</text>
+        </view>
+      </view>
+      <button class="btn cu-btn bg-skyblue" bindtap="consultJump1">问诊</button></view>
+    <text class="text">精选医生</text>
+    <view wx:for="{{nurseList}}" class="card">
+      <view class="head">
+        <image class="avatar" src='{{item.avatar_url}}'></image>
+        <view class="info">
+          <text>医生姓名:{{item.nursename}}</text>
+          <text>性别:{{item.sex}}</text>
+          <text>科室:{{item.department}}</text>
+        </view>
+      </view>
+      <button class="btn cu-btn bg-skyblue" data-index="{{index}}" bindtap="consultJump2">问诊</button>
+    </view>
+  </view>
+</view>

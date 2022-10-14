@@ -1,0 +1,38 @@
+<!--pages/patient/homepage/knowledge/knowledge.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">健康知识</view>
+</cu-custom>
+<view class="content">
+  <text class="text">健康知识</text>
+  <view class="box">
+    <view class="title">不要做</view>
+    <view>严禁游泳、打球、拖地、抱小孩、拄拐杖、托举哑铃或用置管侧手臂支撑起床</view>
+    <view>避免盆浴、泡浴</view>
+    <view>衣服袖口不宜过紧</view>
+    <view>严禁提5公斤以上重物</view>
+  </view>
+  <view class="box">
+    <view class="title">建议做</view>
+    <view>为促进血夜循环、置管侧手臂可以做握拳、伸展等柔和运动</view>
+    <view>可以做一般家务：例如煮饭、洗碗、扫地</view>
+    <view>可以淋浴
+      <image src="/images/patient/linyu.png" />
+    </view>
+  </view>
+  <view class="box">
+    <view class="title">健康提醒</view>
+    <view>不要在picc留置侧测血压
+      <image src="/images/patient/tx1.png" />
+    </view>
+    <view>不要过分弯曲穿刺肢体
+      <image src="/images/patient/tx2.png" />
+    </view>
+    <view>管道打折及时固定
+      <image src="/images/patient/tx3.png" />
+    </view>
+    <view>处理不了及时就医
+      <image src="/images/patient/tx4.png" />
+    </view>
+  </view>
+</view>
